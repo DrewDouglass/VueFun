@@ -15,16 +15,29 @@
         <div id="app">
             <p>My local property: {{ myLocalProperty }}</p>
             <hr />
-            <button @click="myLocalProperty = 'The button was clicked!'">
+            <button @click="buttonClicked">
                 Click Me
             </button>
+            <hr />
+            <p v-if="randomNumber >= 50">
+                randomNumber is greater than or equal to 50!
+            </p>
+            <p v-else>
+                Sorry, randomNumber is only <strong>{{ randomNumber }}</strong>
+            </p>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             const app = new Vue({
                 el: "#app",
                 data: {
-                    myLocalProperty: "I'm a local property value"
+                    myLocalProperty: "I'm a local property value",
+                    randomNumber: 0
+                },
+                methods: {
+                    buttonClicked() {
+                        this.randomNumber = Math.floor(Math.random() * 100);
+                    }
                 }
             });
         </script>
