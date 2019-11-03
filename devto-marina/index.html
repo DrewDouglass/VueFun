@@ -25,6 +25,11 @@
             <p v-else>
                 Sorry, randomNumber is only <strong>{{ randomNumber }}</strong>
             </p>
+
+            <h2>Games (v-for)</h2>
+            <ul>
+                <li v-for="game in games">{{ game }}</li>
+            </ul>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
@@ -32,7 +37,30 @@
                 el: "#app",
                 data: {
                     myLocalProperty: "I'm a local property value",
-                    randomNumber: 0
+                    randomNumber: 0,
+                    games: [
+                        {
+                            name: "Super Mario 64",
+                            console: "Nintendo 64",
+                            rating: 4
+                        },
+                        {
+                            name: "The Legend of Zelda Ocarina of Time",
+                            console: "Nintendo 64",
+                            rating: 5
+                        },
+                        {
+                            name: "Secret of Mana",
+                            console: "Super Nintendo",
+                            rating: 4
+                        },
+                        { name: "Fallout 76", console: "Multiple", rating: 1 },
+                        {
+                            name: "Super Metroid",
+                            console: "Super Nintendo",
+                            rating: 6
+                        }
+                    ]
                 },
                 methods: {
                     buttonClicked() {
