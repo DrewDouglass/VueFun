@@ -27,9 +27,11 @@
             </p>
 
             <h2>Games (v-for)</h2>
-            <ul>
-                <li v-for="game in games">{{ game }}</li>
-            </ul>
+            <div v-for="game in games">
+                <h1>{{ game.name }} - <small>{{ game.console }}</h1>
+                <span v-for="star in game.rating">🌟</span>
+                <div v-if="game.rating > 3">Wow this game is <strong>awesome!</strong></div>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
