@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Vue 101</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <awesome-button></awesome-button>
+            <awesome-button></awesome-button>
+            <awesome-button></awesome-button>
+            <awesome-button></awesome-button>
+            <awesome-button></awesome-button>
+            <awesome-button></awesome-button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script>
+            Vue.component("awesome-button", {
+                template: `<button @click="clickHandler">Click me for awesome</button>`,
+                methods: {
+                    clickHandler() {
+                        alert("IT ME 😎");
+                    }
+                }
+            });
+            const app = new Vue({
+                el: "#app",
+                data: {}
+            });
+        </script>
+    </body>
+</html>
