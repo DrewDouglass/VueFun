@@ -27,11 +27,11 @@
             </p>
 
             <h2>Games (v-for)</h2>
-            <template v-for="game in games" :key="game.name">
+            <div v-for="game in games" :key="game.name">
                 <h1>{{ game.name }} - <small>{{ game.console }}</h1>
-                <span v-for="star in game.rating">🌟</span>
+                <span id="stars" v-for="star in game.rating" @click="increaseScore(game)">🌟</span>
                 <div v-if="game.rating > 3">Wow this game is <strong>awesome!</strong></div>
-            </template>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
@@ -71,9 +71,17 @@
                 methods: {
                     buttonClicked() {
                         this.randomNumber = Math.floor(Math.random() * 100);
+                    },
+                    increaseScore(singleGame) {
+                        singleGame.rating++;
                     }
                 }
             });
         </script>
+        <style scoped>
+        #stars {
+            cursor: pointer;
+        }
+        </style>
     </body>
 </html>
