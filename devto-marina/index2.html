@@ -26,15 +26,22 @@
         <script>
             Vue.component("game-card", {
                 props: ["gameData"],
+                data() {
+                    return {
+                        thing: { ...this.gameData }
+                    };
+                },
                 template: ` <div style="border-radius: .25rem; border: 1px solid #ECECEC; width: 400px; margin: 1rem; padding: 1rem;">
-                                <h2>{{ gameData.name }} - <small>{{ gameData.console }}</small></h2>
+                                <h2>{{ thing.name }} - <small>{{ thing.console }}</small></h2>
 
-                                <span v-for="heart in gameData.rating">🔥</span>
+                                <span v-for="heart in thing.rating">🔥</span>
 
                                 <button @click="increaseRating">Increase Rating</button>
                             </div>`,
                 methods: {
-                    increaseRating() {}
+                    increaseRating() {
+                        this.thing.rating++;
+                    }
                 }
             });
 
